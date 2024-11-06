@@ -13,14 +13,9 @@ class MyTestCase(unittest.TestCase, WebdriverHandler):
         WebdriverHandler.__init__(self)
         self.driver.get("https://www.demoblaze.com/")
 
-
-
-
     def tearDown(self):
         # Este método se ejecuta después de cada prueba
         self.driver.quit()
-
-
 
     # def test_add_products_to_cart(self):
     #     number_produtcs = generate_numbert_random()
@@ -29,6 +24,7 @@ class MyTestCase(unittest.TestCase, WebdriverHandler):
     #     self.assertEqual(number_produtcs, number_produtcs_in_cart, "Error la cantidad de productos no coincide")
 
     def test_buy_one_item_complete(self):
+        print("jenkis")
         number_produtcs = 1
         add_items(self.driver, self.wait, number_produtcs)
         number_produtcs_in_cart = cart(self.driver, self.wait)
@@ -36,5 +32,3 @@ class MyTestCase(unittest.TestCase, WebdriverHandler):
         number_order = checkout(self.driver, self.wait)
         self.assertIsNotNone(number_order, "Error: No se ha generado la compra ")
 
-
-MyTestCase()
